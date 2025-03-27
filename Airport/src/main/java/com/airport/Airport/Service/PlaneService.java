@@ -7,57 +7,42 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PlaneService {
 
     @Autowired
-    private PlaneRepository PlaneRepository;
+    private PlaneRepository planeRepository;
 
     public List<Plane> getAllPlane() {
-        return PlaneRepository.findAll();
+        return planeRepository.findAll();
     }
 
-    public Optional<AppUser> getUserById(String id) {
-        return appUserRepository.findById(id);
+    public Optional<Plane> getPlaneById(Long id) {
+        return planeRepository.findById(id);
     }
 
-    public AppUser createUser(AppUser user) {
-        return appUserRepository.save(user);
+    public Plane createPlane(Plane plane) {
+        return planeRepository.save(plane);
     }
 
-    public AppUser updateUser(AppUser user) {
-        return appUserRepository.save(user);
+    public Plane updatePlane(Plane plane) {
+        return planeRepository.save(plane);
     }
 
-    public void deleteUser(String id) {
-        appUserRepository.deleteById(id);
+    public void deletePlane(Long id) {
+        planeRepository.deleteById(id);
     }
 
-    public void deleteAllUsers() {
-        appUserRepository.deleteAll();
+    public void deleteAllPlanes() {
+        planeRepository.deleteAll();
     }
 
-    public boolean existsById(String id) {
-        return appUserRepository.existsById(id);
+    public boolean existsById(Long id) {
+        return planeRepository.existsById(id);
     }
 
-    public long getUserCount() {
-        return appUserRepository.count();
-    }
-
-    // Additional business logic can be added here
-    public List<AppUser> getActiveUsers() {
-        return appUserRepository.findByIsActiveTrue();
-    }
-
-    public AppUser getUserByEmail(String email) {
-        return appUserRepository.findByEmail(email);
-    }
-
-    public List<AppUser> getUsersByAgeGreaterThan(int age) {
-        return appUserRepository.findByAgeGreaterThan(age);
-    }
 
 
 }

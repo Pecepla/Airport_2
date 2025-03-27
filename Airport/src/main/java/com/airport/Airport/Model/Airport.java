@@ -21,7 +21,6 @@ import java.util.Objects;
         @OneToMany(mappedBy = "departureAirport", cascade = CascadeType.ALL)
         private List<Flight> departingFlights;
 
-
         @OneToMany(mappedBy = "arrivalAirport", cascade = CascadeType.ALL)
         private List<Flight> arrivingFlights;
 
